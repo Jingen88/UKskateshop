@@ -8,10 +8,10 @@ const Navbar = () => {
       <Image src='' alt='' />
       <nav>
         <ul>
-          <li>Team</li>
-          <li>Shop</li>
-          <li>About</li>
-          <li>Customizer</li>
+          <Link><li>Team</li></Link>
+         <Link><li>Shop</li></Link>
+         <Link><li>About</li></Link>
+         <Link><li>Customizer</li></Link>
         </ul>
       </nav>
       <Link href='/Builder'></Link>
