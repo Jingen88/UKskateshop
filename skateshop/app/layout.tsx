@@ -1,11 +1,32 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Ultra, Special_Elite } from "next/font/google";
 import "./globals.css";
+import SVGFilterElement from "@/components/Filter"; 
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
+
+const specialElite = Special_Elite({
+  variable: "--font-special-elite",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  style: "normal",
+  fallback: ["system-ui", "sans-serif"],
+  preload: true,
+});
+
+const ultra = Ultra({
+  variable: "--font-ultra",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  style: "normal",
+  fallback: ["system-ui", "sans-serif"],
+  preload: true,
+})
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -25,9 +46,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable}  ${ultra.variable} ${specialElite.variable} font-sans antialiased`}
       >
         {children}
+         <SVGFilterElement /> 
       </body>
     </html>
   );

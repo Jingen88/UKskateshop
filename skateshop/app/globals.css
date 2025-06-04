@@ -1,2 +1,66 @@
 @import "tailwindcss";
 
+.bg-texture {
+    background-image: url('/bg-texture.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    z-index: 1;
+}
+
+.bg-navbar {
+  background-image: url('/navbar.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-hero-texture {
+  background-image: url('/bg-hero.png'), url('/bg-texture.webp');
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, repeat;
+}
+
+
+.special-elite-regular {
+  font-family: "Special Elite", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+.special-elite-bold {
+  font-family: "Special Elite", system-ui;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+
+
+.ultra-regular {
+  font-family: "Ultra", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.ultra-bold {
+  font-family: "Ultra", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+  @keyframes wobble {
+    0% { transform: translateX(0) rotate(1deg) skew(-1deg); }
+    25% { transform: translateX(-5px) rotate(-1deg) skew(1deg); }
+    50% { transform: translateX(5px) rotate(1deg) skew(-1deg); }
+    75% { transform: translateX(-2px) rotate(-1deg) skew(1deg); }
+    100% { transform: translateX(0) rotate(1deg) skew(-1deg); }
+  }
+
+  .animate-wobble {
+    animation: wobble 0.5s ease-in-out;
+  }
+
+  .text-shadow-lg {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
