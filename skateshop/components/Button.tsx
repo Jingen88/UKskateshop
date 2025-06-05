@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { TbSkateboarding  } from "react-icons/tb";
 import { FaShoppingCart } from "react-icons/fa";
+import clsx from "clsx";
 
 const SkateboardButton = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -36,7 +37,7 @@ const SkateboardButton = () => {
   );
 };
 
-export default SkateboardButton;
+export { SkateboardButton };
 
 // Add these styles to your global CSS or tailwind.config.js
 const styles = `
@@ -92,3 +93,56 @@ const CartButton = () => {
 };
 
 export { CartButton };
+
+
+interface CustomizeButtonProps {
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  children?: React.ReactNode;
+  className?: string;
+  type?: "button" | "submit" | "reset";
+}
+
+export const CustomizeButton: React.FC<CustomizeButtonProps> = ({
+  onClick,
+  children = "Customize",
+  className = "",
+  type = "button",
+}) => (
+  <button
+    type={type}
+    onClick={onClick}
+    className={`
+      group relative cursor-pointer flex items-center justify-center w-full px-4 py-2
+      rounded-[12px_4px_24px_8px]
+      bg-gradient-to-b bg-black text-white special-elite-bold uppercase tracking-wider
+      text-base shadow transition-all duration-200 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-black/30
+      text-shadow-lg
+      ${className}
+    `}
+    style={{ fontSize: "1rem", padding: "0.5rem 1.25rem" }}
+  >
+    <span className="relative">{children}</span>
+  </button>
+);
+
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  children: React.ReactNode;
+  color?: "lime" | "orange";
+};
+
+const LinkButton = ({ children, color = "lime", className, ...props }: ButtonProps) => (
+  <button
+    className={clsx(
+      "px-6 py-2 rounded-full font-bold transition-transform duration-150 active:scale-95 shadow-md",
+      color === "lime"
+        ? "bg-brand-lime text-black hover:bg-lime-400"
+        : "bg-brand-orange text-white hover:bg-orange-400",
+      className
+    )}
+    {...props}
+  >
+    {children}
+  </button>
+);
+
+export default LinkButton;
