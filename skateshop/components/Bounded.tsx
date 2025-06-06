@@ -5,24 +5,24 @@ type BoundedProps = {
   as?: ElementType;
   className?: string;
   style?: CSSProperties;
-  children: ReactNode;
+  children?: React.ReactNode; // <-- Change here
 };
 
 export function Bounded({
-  as: Comp = "section",
+  as:section = "section",
   className,
   children,
   ...restProps
 }: BoundedProps) {
   return (
-    <Comp
+    <section
       className={clsx(
         "px-6 ~py-10/16 [.header+&]:pt-44 [.header+&]:md:pt-32",
         className
       )}
-      {...restProps}
+      {...(restProps as any)}
     >
       <div className="mx-auto w-full max-w-6xl">{children}</div>
-    </Comp>
+    </section>
   );
 }
