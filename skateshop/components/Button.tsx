@@ -9,7 +9,7 @@ const SkateboardButton = () => {
 
   return (
     <button
-      className={`group relative cursor-pointer flex items-center justify-center gap-3 px-8 py-4 text-xl font-bold transition-all duration-300 overflow-hidden
+      className={` z-20 group relative cursor-pointer flex items-center justify-center gap-3 px-8 py-4 text-xl font-bold transition-all duration-300 overflow-hidden
         ${isHovered ? "animate-wobble" : ""}
         before:absolute before:inset-0 before:bg-black before:opacity-90
         after:absolute after:inset-0 after:bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEzIDNhMiAyIDAgMCAwLTIgMkg3YTIgMiAwIDAgMC0yIDJ2MmEyIDIgMCAwIDAgMiAyaDEwYTIgMiAwIDAgMCAyLTJWN2EyIDIgMCAwIDAtMi0yaC00YTIgMiAwIDAgMC0yLTJ6bS0zIDZIN3YyaDN2LTJ6bTcgMGgtM3YyaDN2LTJ6Ii8+PC9zdmc+')] after:opacity-20
@@ -64,7 +64,7 @@ const CartButton = () => {
 
   return (
     <button
-      className={`group relative cursor-pointer flex items-center justify-center gap-3 px-8 py-4 text-xl font-bold transition-all duration-300 overflow-hidden
+      className={`group relative z-20 cursor-pointer flex items-center justify-center gap-3 px-8 py-4 text-xl font-bold transition-all duration-300 overflow-hidden
         ${isHovered ? "animate-wobble" : ""}
         before:absolute before:inset-0 before:bg-black before:opacity-90
         after:absolute after:inset-0 after:bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEzIDNhMiAyIDAgMCAwLTIgMkg3YTIgMiAwIDAgMC0yIDJ2MmEyIDIgMCAwIDAgMiAyaDEwYTIgMiAwIDAgMCAyLTJWN2EyIDIgMCAwIDAtMi0yaC00YTIgMiAwIDAgMC0yLTJ6bS0zIDZIN3YyaDN2LTJ6bTcgMGgtM3YyaDN2LTJ6Ii8+PC9zdmc+')] after:opacity-20
@@ -135,7 +135,7 @@ const LinkButton = ({ children = "Click Me", color = "lime", className, ...props
 
   return (
     <button
-      className={`group relative cursor-pointer flex items-center justify-center gap-3 px-8 py-4 text-xl font-bold transition-all duration-300 overflow-hidden
+      className={` z-50 group relative cursor-pointer flex items-center justify-center gap-3 px-8 py-4 text-xl font-bold transition-all duration-300 overflow-hidden
         ${isHovered ? "animate-wobble" : ""}
         before:absolute before:inset-0 before:bg-black before:opacity-90
         after:absolute after:inset-0 after:bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEzIDNhMiAyIDAgMCAwLTIgMkg3YTIgMiAwIDAgMC0yIDJ2MmEyIDIgMCAwIDAgMiAyaDEwYTIgMiAwIDAgMCAyLTJWN2EyIDIgMCAwIDAtMi0yaC00YTIgMiAwIDAgMC0yLTJ6bS0zIDZIN3YyaDN2LTJ6bTcgMGgtM3YyaDN2LTJ6Ii8+PC9zdmc+')] after:opacity-20

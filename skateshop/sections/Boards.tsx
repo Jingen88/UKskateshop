@@ -1,5 +1,6 @@
 import React from "react";
 import ProductGrid from "./ProductGrid/index";
+import { SlideIn } from "@/components/SlideIn";
 // Mock data for demonstration
 const mockProducts = [
 	{
@@ -45,13 +46,18 @@ export default async function Boards() {
 
 	return (
 		<div className="flex bg-texture flex-col items-center w-full min-h-screen bg-orange-50 p-5">
+			<SlideIn delay={0.2}>
+
 			<h1 className="flex flex-wrap text-5xl font-bold ultra-bold tracking-wide px-5 line-clamp-1 mt-5">
 				{" "}
 				Latest Boards
 			</h1>
+			</SlideIn>
+			<SlideIn  delay={0.4}>
 			<p className="flex space-x-8 text-xl text-zinc-800 special-elite-bold mt-3 mb-5">
 				Newest boards in our collection.
 			</p>
+			</SlideIn>
 
 			<ProductGrid products={products} />
 		</div>
