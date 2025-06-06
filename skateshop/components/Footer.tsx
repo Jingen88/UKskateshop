@@ -22,7 +22,7 @@ const Footer = () => (
   <footer className="bg-texture bg-zinc-900 text-white overflow-hidden">
     <div className="relative h-[75vh] ~p-10/16 md:aspect-auto">
       {/* Static background image */}
-      <img
+      <Image
         src="/gravity-bg.png"
         alt=""
         className="object-cover absolute inset-0 w-full h-full z-0"
