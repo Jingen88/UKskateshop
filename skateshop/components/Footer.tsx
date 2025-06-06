@@ -1,46 +1,56 @@
-import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import React from "react";
-import { asImageSrc } from "@prismicio/client";
-
-import { createClient } from "@/prismicio";
-import { Logo } from "@/components/Logo";
+import Image from "next/image"; 
 import { Bounded } from "./Bounded";
 import { FooterPhysics } from "./FooterPhysics";
 
-export async function Footer() {
-  const client = createClient();
-  const settings = await client.getSingle("settings");
+// Example static images for boards
+const boardTextureURLs = [
+  "/pink-drop-complete.png",
+  "/yellow-black-complete.png",
+  "/thank-you-complete.png",
+  "/onimask-complete.png",
+];
 
-  const boardTextureURLs = settings.data.footer_skateboards
-    .map((item) => asImageSrc(item.skateboard, { h: 600 }))
-    .filter((url): url is string => Boolean(url));
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/shop", label: "Shop" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
 
-  return (
-    <footer className="bg-texture bg-zinc-900 text-white overflow-hidden">
-      <div className="relative h-[75vh] ~p-10/16 md:aspect-auto">
-        <PrismicNextImage
-          field={settings.data.footer_image}
-          alt=""
-          fill
-          className="object-cover"
-          width={1200}
-        />
-        <FooterPhysics
-          boardTextureURLs={boardTextureURLs}
-          className="absolute inset-0 overflow-hidden"
-        />
-        <Logo className="pointer-events-none relative h-20 mix-blend-exclusion md:h-28" />
-      </div>
-      <Bounded as="nav">
-        <ul className="flex flex-wrap justify-center gap-8 ~text-lg/xl">
-          {settings.data.navigation.map((item) => (
-            <li key={item.link.text} className="hover:underline">
-              <PrismicNextLink field={item.link} />
-            </li>
-          ))}
-        </ul>
-      </Bounded>
-      {/* List of links */}
-    </footer>
-  );
-}
+const Footer = () => (
+  <footer className="bg-texture bg-zinc-900 text-white overflow-hidden">
+    <div className="relative h-[75vh] ~p-10/16 md:aspect-auto">
+      {/* Static background image */}
+      <img
+        src="/gravity-bg.png"
+        alt=""
+        className="object-cover absolute inset-0 w-full h-full z-0"
+        width={1200}
+        height={600}
+      />
+      <FooterPhysics
+        boardTextureURLs={boardTextureURLs}
+        className="absolute inset-0 overflow-hidden z-10"
+      />
+      <Image
+        src='/skateshop.png'
+        width={130}
+        height={130}
+        alt='logo'
+        className="pointer-events-none relative h-20 mix-blend-luminosity md:h-28 z-20"
+      />
+    </div>
+    <Bounded as="nav">
+      <ul className="flex special-elite-bold mt-8 mb-8 items-center text-centerflex-wrap justify-center gap-10 ~text-lg/xl">
+        {navLinks.map((item) => (
+          <li key={item.href} className="hover:text-[#A1EF03] hover:underline-offset-4">
+            <a href={item.href}>{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </Bounded>
+  </footer>
+);
+
+export default Footer;

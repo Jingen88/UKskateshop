@@ -1,5 +1,5 @@
 import React from 'react'
-import SkateboardButton from '../components/Button' // Make sure the import path is correct
+import {SkateboardButton} from '../components/Button' // Make sure the import path is correct
 import { Heading } from '../components/Heading'
 
 const Hero = () => {

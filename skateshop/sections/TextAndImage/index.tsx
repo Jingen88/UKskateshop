@@ -25,6 +25,9 @@ type TextAndImageProps = {
   theme?: "Blue" | "Orange" | "Navy" | "Lime";
   variation?: "default" | "imageOnLeft";
   index?: number;
+  headingClassName?: string; // <-- add optional headingClassName prop
+  bodyClassName?: string; // <-- add optional bodyClassName prop
+  bgColor?: string; // <-- add optional bgColor prop
 };
 
 /**
@@ -39,6 +42,9 @@ const TextAndImage = ({
   theme = "Blue",
   variation = "default",
   index = 0,
+  headingClassName = "",
+  bodyClassName = "",
+  bgColor = "",
 }: TextAndImageProps) => {
   return (
     <Bounded
@@ -47,7 +53,8 @@ const TextAndImage = ({
         theme === "Blue" && "bg-texture bg-brand-blue text-white",
         theme === "Orange" && "bg-texture bg-brand-orange text-white",
         theme === "Navy" && "bg-texture bg-brand-navy text-white",
-        theme === "Lime" && "bg-texture bg-brand-lime"
+        theme === "Lime" && "bg-texture bg-brand-lime",
+        bgColor // <-- add this
       )}
       style={{ "--index": index } as React.CSSProperties}
     >
@@ -59,21 +66,16 @@ const TextAndImage = ({
           )}
         >
           <SlideIn>
-            <Heading size="lg" as="h2">
+            <Heading size="lg" as="h2" className={headingClassName}>
               {heading}
             </Heading>
           </SlideIn>
           <SlideIn>
-            <div className="max-w-md text-lg leading-relaxed">{body}</div>
+            <div className={clsx("max-w-md", bodyClassName)}>{body}</div>
           </SlideIn>
           {button && (
             <SlideIn>
-              <LinkButton
-                color={theme === "Lime" ? "orange" : "lime"}
-                onClick={() => window.location.href = button.href}
-              >
-                {button.text}
-              </LinkButton>
+              <LinkButton onClick={() => window.location.href = button.href}>{button.text}</LinkButton>
             </SlideIn>
           )}
         </div>

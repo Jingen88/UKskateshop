@@ -181,16 +181,16 @@ export function FooterPhysics({
       const y = Math.random() * (ch / 2 - 100) + 50;
       const rotation = ((Math.random() * 100 - 50) * Math.PI) / 180;
 
-      return Bodies.rectangle(x, y, 80, 285, {
-        chamfer: { radius: 40 }, // Rounded corners for accurate collision
+      return Bodies.rectangle(x, y, 40, 120, { // smaller size
+        chamfer: { radius: 20 },
         angle: rotation,
-        restitution: 0.8, // Bounciness
-        friction: 0.005, // minimal friction
+        restitution: 0.8,
+        friction: 0.005,
         render: {
           sprite: {
             texture,
-            xScale: 0.5, // Scale texture down
-            yScale: 0.5,
+            xScale: 0.25, // smaller scale
+            yScale: 0.25,
           },
         },
       });
