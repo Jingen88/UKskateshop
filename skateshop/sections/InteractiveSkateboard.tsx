@@ -12,15 +12,15 @@ import { WavyPaths } from "../components/WavyPaths";
 const INITIAL_CAMERA_POSITION = [1.5, 1, 1.4] as const;
 
 type Props = {
-  deckTextureURL: string;
-  wheelTextureURL: string;
+  deckColor: string;
+  wheelColor: string;
   truckColor: string;
   boltColor: string;
 };
 
 export function InteractiveSkateboard({
-  deckTextureURL,
-  wheelTextureURL,
+  deckColor,
+  wheelColor,
   truckColor,
   boltColor,
 }: Props) {
@@ -32,8 +32,8 @@ export function InteractiveSkateboard({
       >
         <Suspense>
           <Scene
-            deckTextureURL={deckTextureURL}
-            wheelTextureURL={wheelTextureURL}
+            deckColor={deckColor}
+            wheelColor={wheelColor}
             truckColor={truckColor}
             boltColor={boltColor}
           />
@@ -44,8 +44,8 @@ export function InteractiveSkateboard({
 }
 
 function Scene({
-  deckTextureURL,
-  wheelTextureURL,
+  deckColor,
+  wheelColor,
   truckColor,
   boltColor,
 }: Props) {
@@ -193,10 +193,10 @@ function Scene({
         <group ref={containerRef} position={[-0.25, 0, -0.635]}>
           <group position={[0, -0.086, 0.635]}>
             <Skateboard
-              wheelTextureURLs={[wheelTextureURL]}
-              wheelTextureURL={wheelTextureURL}
-              deckTextureURLs={[deckTextureURL]}
-              deckTextureURL={deckTextureURL}
+              wheelTextureURLs={[wheelColor]}
+              wheelTextureURL={wheelColor}
+              deckTextureURLs={[deckColor]}
+              deckTextureURL={deckColor}
               truckColor={truckColor}
               boltColor={boltColor}
               constantWheelSpin
