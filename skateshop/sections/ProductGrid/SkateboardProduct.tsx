@@ -11,7 +11,7 @@ async function getDominantColor(url: string) {
   return "#A1EF03";
 }
 
-type Product = {
+export type Product = {
   id: string;
   name: string;
   price: number;

@@ -8,8 +8,15 @@ import gsap from "gsap";
 import { Hotspot } from "../components/Hotspot";
 import { WavyPaths } from "../components/WavyPaths";
 
-
 const INITIAL_CAMERA_POSITION = [1.5, 1, 1.4] as const;
+
+// Move Props type here
+type Props = {
+  deckTextureURL: string;
+  wheelTextureURL: string;
+  truckColor: string;
+  boltColor: string;
+};
 
 export function InteractiveSkateboard({
   deckTextureURL,
@@ -35,13 +42,6 @@ export function InteractiveSkateboard({
     </div>
   );
 }
-
-type Props = {
-  deckTextureURL: string;
-  wheelTextureURL: string;
-  truckColor: string;
-  boltColor: string;
-};
 
 function Scene({
   deckTextureURL,
