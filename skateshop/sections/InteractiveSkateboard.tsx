@@ -1,5 +1,4 @@
 "use client";
-
 import * as THREE from "three";
 import { Skateboard } from "@/components/Skateboard";
 import { ContactShadows, Environment, Html } from "@react-three/drei";
@@ -9,14 +8,8 @@ import gsap from "gsap";
 import { Hotspot } from "../components/Hotspot";
 import { WavyPaths } from "../components/WavyPaths";
 
-const INITIAL_CAMERA_POSITION = [1.5, 1, 1.4] as const;
 
-type Props = {
-  deckTextureURL: string;
-  wheelTextureURL: string;
-  truckColor: string;
-  boltColor: string;
-};
+const INITIAL_CAMERA_POSITION = [1.5, 1, 1.4] as const;
 
 export function InteractiveSkateboard({
   deckTextureURL,
@@ -42,6 +35,13 @@ export function InteractiveSkateboard({
     </div>
   );
 }
+
+type Props = {
+  deckTextureURL: string;
+  wheelTextureURL: string;
+  truckColor: string;
+  boltColor: string;
+};
 
 function Scene({
   deckTextureURL,
